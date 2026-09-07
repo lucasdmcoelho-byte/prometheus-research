@@ -10,6 +10,21 @@ human-reviewable PDF.
 > Technical portfolio project. It is not investment advice, does not promise
 > returns and is not a substitute for a regulated analyst or suitability review.
 
+**Portfolio snapshot:** Python · CVM/B3 provenance · point-in-time controls ·
+deterministic validation · auditable PDF/JSON outputs · human review workflow.
+
+> Start here: [five-minute portfolio demo](docs/PORTFOLIO_DEMO.md) ·
+> [architecture](docs/ARCHITECTURE.md) · [engineering decisions](docs/ENGINEERING_DECISIONS.md) ·
+> [current validation status](docs/VALIDATION_STATUS.md)
+
+![PROMETHEUS pipeline](docs/assets/prometheus-flow.svg)
+
+*The local demonstration report is rendered from the same pipeline described
+above; this preview is included only to make the portfolio reviewable at a
+glance.*
+
+![CURY3 report preview](docs/assets/cury3-report-preview.png)
+
 ## Why it is interesting
 
 Financial data is messy: filings are revised, documents arrive at different
@@ -43,6 +58,19 @@ The local validation set includes a CURY3 example with **16/18 traceable
 operational KPIs** from an official CVM document. Generated PDFs and caches are
 excluded from Git; the reproducible workflow is documented in
 [docs/PORTFOLIO_DEMO.md](docs/PORTFOLIO_DEMO.md).
+
+## A useful way to review the project
+
+1. Read the pipeline diagram above and open `prometheus/` to see the separation
+   between collection, normalization, provenance and analysis.
+2. Run the tests, then execute the offline CURY3 command below with an audited
+   snapshot.
+3. Open the generated PDF beside its JSON export and trace one KPI from source
+   document to claim and rendered output.
+
+The repository intentionally states its boundaries: sector coverage is not
+universal, external feeds can be unavailable, statistical backtesting is not a
+track record, and a human must review any report before delivery.
 
 ## Quick start
 
@@ -104,5 +132,5 @@ See [docs/COMMERCIAL_AND_LEGAL.md](docs/COMMERCIAL_AND_LEGAL.md) and
 
 ## License
 
-No license is declared yet. All rights remain with the author unless a separate
-license is added.
+Released under the [MIT License](LICENSE). The research outputs remain subject
+to their original source terms; this code is not investment advice.

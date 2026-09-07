@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420">
+  <rect width="1200" height="420" rx="24" fill="#0b1220"/>
+  <text x="60" y="62" fill="#f8fafc" font-family="Arial, sans-serif" font-size="28" font-weight="700">PROMETHEUS · evidence to decision-ready context</text>
+  <text x="60" y="94" fill="#94a3b8" font-family="Arial, sans-serif" font-size="16">A reproducible, point-in-time pipeline for Brazilian public companies</text>
+  <g font-family="Arial, sans-serif" font-size="16" font-weight="700" text-anchor="middle">
+    <g><rect x="55" y="155" width="180" height="105" rx="16" fill="#172554" stroke="#60a5fa" stroke-width="2"/><text x="145" y="195" fill="#bfdbfe">1 · Identify</text><text x="145" y="225" fill="#e0f2fe" font-size="13" font-weight="400">Ticker → CVM issuer</text></g>
+    <g><rect x="275" y="155" width="180" height="105" rx="16" fill="#172554" stroke="#60a5fa" stroke-width="2"/><text x="365" y="195" fill="#bfdbfe">2 · Collect</text><text x="365" y="225" fill="#e0f2fe" font-size="13" font-weight="400">CVM/B3, as-of cutoff</text></g>
+    <g><rect x="495" y="155" width="180" height="105" rx="16" fill="#172554" stroke="#60a5fa" stroke-width="2"/><text x="585" y="195" fill="#bfdbfe">3 · Preserve</text><text x="585" y="225" fill="#e0f2fe" font-size="13" font-weight="400">Raw facts + provenance</text></g>
+    <g><rect x="715" y="155" width="180" height="105" rx="16" fill="#172554" stroke="#60a5fa" stroke-width="2"/><text x="805" y="195" fill="#bfdbfe">4 · Analyze</text><text x="805" y="225" fill="#e0f2fe" font-size="13" font-weight="400">Deterministic checks</text></g>
+    <g><rect x="935" y="155" width="210" height="105" rx="16" fill="#064e3b" stroke="#34d399" stroke-width="2"/><text x="1040" y="195" fill="#a7f3d0">5 · Deliver</text><text x="1040" y="225" fill="#d1fae5" font-size="13" font-weight="400">PDF + JSON + review</text></g>
+  </g>
+  <g stroke="#64748b" stroke-width="3" fill="none"><path d="M235 208h35"/><path d="M455 208h35"/><path d="M675 208h35"/><path d="M895 208h35"/></g>
+  <g fill="#94a3b8" font-family="Arial, sans-serif" font-size="14"><text x="60" y="330">Guardrails: no look-ahead · explicit INSUFFICIENT_DATA · source/date/hash on numeric claims</text><text x="60" y="360">Output is auditable and human-reviewable; it is not investment advice or a performance promise.</text></g>
+</svg>
