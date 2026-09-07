@@ -40,7 +40,9 @@ def market_data_adapter():
                 },
                 "source_metadata": SourceMetadata(
                     source="test",
-                    timestamp=datetime.datetime.utcnow(),
+                    # Fixed historical availability keeps point-in-time tests
+                    # deterministic when they evaluate an older cutoff.
+                    timestamp=datetime.datetime(2026, 8, 1, 12, 0, 0),
                     publication_date=None,
                     effective_date=None,
                     ticker=ticker,
