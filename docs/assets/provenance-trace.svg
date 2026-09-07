@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="500" viewBox="0 0 1400 500">
+  <rect width="1400" height="500" rx="28" fill="#07111f"/>
+  <text x="70" y="62" fill="#f8fafc" font-family="Arial, sans-serif" font-size="30" font-weight="700">One fact. Six audit steps.</text>
+  <text x="70" y="96" fill="#94a3b8" font-family="Arial, sans-serif" font-size="17">How PROMETHEUS turns a public CVM filing into a traceable report claim</text>
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <g><rect x="55" y="170" width="190" height="150" rx="18" fill="#172554" stroke="#60a5fa" stroke-width="2"/><text x="150" y="210" fill="#bfdbfe" font-size="18" font-weight="700">CVM document</text><text x="150" y="250" fill="#e0f2fe" font-size="15">ITR / DFP</text><text x="150" y="280" fill="#93c5fd" font-size="13">source + publication date</text></g>
+    <g><rect x="285" y="170" width="190" height="150" rx="18" fill="#172554" stroke="#60a5fa" stroke-width="2"/><text x="380" y="210" fill="#bfdbfe" font-size="18" font-weight="700">Raw fact</text><text x="380" y="250" fill="#e0f2fe" font-size="15">three observations</text><text x="380" y="280" fill="#93c5fd" font-size="13">period + unit preserved</text></g>
+    <g><rect x="515" y="170" width="190" height="150" rx="18" fill="#172554" stroke="#60a5fa" stroke-width="2"/><text x="610" y="210" fill="#bfdbfe" font-size="18" font-weight="700">Normalized fact</text><text x="610" y="250" fill="#e0f2fe" font-size="15">TTM revenue</text><text x="610" y="280" fill="#93c5fd" font-size="13">versioned transformation</text></g>
+    <g><rect x="745" y="170" width="190" height="150" rx="18" fill="#172554" stroke="#60a5fa" stroke-width="2"/><text x="840" y="210" fill="#bfdbfe" font-size="18" font-weight="700">Calculation</text><text x="840" y="250" fill="#e0f2fe" font-size="15">formula + premises</text><text x="840" y="280" fill="#93c5fd" font-size="13">as-of cutoff enforced</text></g>
+    <g><rect x="975" y="170" width="150" height="150" rx="18" fill="#064e3b" stroke="#34d399" stroke-width="2"/><text x="1050" y="210" fill="#a7f3d0" font-size="18" font-weight="700">Claim</text><text x="1050" y="250" fill="#d1fae5" font-size="15">source ID</text><text x="1050" y="280" fill="#6ee7b7" font-size="13">hash recorded</text></g>
+    <g><rect x="1165" y="170" width="180" height="150" rx="18" fill="#064e3b" stroke="#34d399" stroke-width="2"/><text x="1255" y="210" fill="#a7f3d0" font-size="18" font-weight="700">PDF · p.4</text><text x="1255" y="250" fill="#d1fae5" font-size="15">human-readable</text><text x="1255" y="280" fill="#6ee7b7" font-size="13">audit export linked</text></g>
+  </g>
+  <g stroke="#64748b" stroke-width="3" fill="none"><path d="M245 245h38"/><path d="M475 245h38"/><path d="M705 245h38"/><path d="M935 245h38"/><path d="M1125 245h38"/></g>
+  <text x="70" y="395" fill="#fbbf24" font-family="Arial, sans-serif" font-size="16" font-weight="700">Guardrail:</text><text x="165" y="395" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="16">if source, period or cutoff is missing, the claim is not silently promoted.</text>
+  <text x="70" y="435" fill="#94a3b8" font-family="Arial, sans-serif" font-size="15">This is research infrastructure for Brazilian equities — not an autonomous trading signal.</text>
+</svg>

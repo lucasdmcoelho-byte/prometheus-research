@@ -5,9 +5,9 @@
 
 > **Portfolio project · MVP técnico · Python · Dados financeiros · Auditoria**
 
-### Point-in-time financial intelligence for Brazilian companies
+### Point-in-time research infrastructure for Brazilian equities
 
-PROMETHEUS is a Python research engine that turns public CVM/B3 evidence into
+PROMETHEUS is Python research infrastructure that turns public CVM/B3 evidence into
 explainable, auditable company analysis. It preserves information cutoffs,
 keeps raw provenance, validates claims deterministically and exports a
 human-reviewable PDF.
@@ -27,6 +27,8 @@ deterministic validation · auditable PDF/JSON outputs · human review workflow.
 > [current validation status](docs/VALIDATION_STATUS.md)
 
 ![PROMETHEUS pipeline](docs/assets/prometheus-flow.svg)
+
+![Evidence provenance trace](docs/assets/provenance-trace.svg)
 
 *The local demonstration report is rendered from the same pipeline described
 above; this preview is included only to make the portfolio reviewable at a
