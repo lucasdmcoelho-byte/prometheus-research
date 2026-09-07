@@ -1,5 +1,10 @@
 # PROMETHEUS
 
+[![Tests](https://github.com/lucasdmcoelho-byte/prometheus-research/actions/workflows/tests.yml/badge.svg)](https://github.com/lucasdmcoelho-byte/prometheus-research/actions/workflows/tests.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+> **Portfolio project · MVP técnico · Python · Dados financeiros · Auditoria**
+
 ### Point-in-time financial intelligence for Brazilian companies
 
 PROMETHEUS is a Python research engine that turns public CVM/B3 evidence into
@@ -7,13 +12,17 @@ explainable, auditable company analysis. It preserves information cutoffs,
 keeps raw provenance, validates claims deterministically and exports a
 human-reviewable PDF.
 
+**Em uma frase:** um pipeline reproduzível que transforma evidência pública da
+CVM/B3 em análise explicável, com corte temporal, proveniência e revisão humana.
+
 > Technical portfolio project. It is not investment advice, does not promise
 > returns and is not a substitute for a regulated analyst or suitability review.
 
 **Portfolio snapshot:** Python · CVM/B3 provenance · point-in-time controls ·
 deterministic validation · auditable PDF/JSON outputs · human review workflow.
 
-> Start here: [five-minute portfolio demo](docs/PORTFOLIO_DEMO.md) ·
+> Start here: [portfolio review guide](docs/PORTFOLIO_REVIEW.md) ·
+> [five-minute portfolio demo](docs/PORTFOLIO_DEMO.md) ·
 > [architecture](docs/ARCHITECTURE.md) · [engineering decisions](docs/ENGINEERING_DECISIONS.md) ·
 > [current validation status](docs/VALIDATION_STATUS.md)
 
