@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "prometheus-research"
+version = "2.1.0rc2"
+description = "Point-in-time financial research and auditable PDF reports for B3 equities"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "matplotlib>=3.8,<4",
+  "reportlab>=4,<5",
+  "pypdf>=5,<7",
+  "yfinance>=0.2.54,<2",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pandas>=2,<3",
+  "pytest>=8,<10",
+]
+
+[project.scripts]
+prometheus-research = "main:main"
+
+[tool.setuptools]
+py-modules = ["main"]
+
+[tool.setuptools.packages.find]
+include = ["prometheus*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

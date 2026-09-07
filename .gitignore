@@ -1,0 +1,15 @@
+.cache/
+.pytest_cache/
+.venv/
+.venv-*/
+__pycache__/
+*.py[cod]
+build/
+dist/
+*.egg-info/
+prometheus_research.egg-info/
+validation/
+deliverables/
+*.whl
+output/
+tmp/
