@@ -2,8 +2,8 @@
 
 ## Executado e verificado
 - Repositório lucasdmcoelho-byte/prometheus-research encontrado; acesso de escrita confirmado e branch vertice/research-phase-1 criada.
-- Pipeline OHLCV, métricas de trajetória, correlação defasada, detector de repiques, grupo de controle de drawdown, avaliação simples e custos implementados.
-- 11 testes unitários passaram no ambiente local.
+- Pipeline OHLCV, métricas de trajetória, correlação defasada, detector de repiques, grupo de controle de drawdown com separação por sessão, avaliação simples e custos implementados.
+- 13 testes unitários passaram no ambiente local.
 - Registro manual de preços da conversa organizado em CSV local, explicitamente marcado como observação manual e não OHLCV.
 
 ## Executado com limitações
