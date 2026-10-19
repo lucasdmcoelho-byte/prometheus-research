@@ -9,7 +9,7 @@ Data de execução: 19/10/2026. Branch remota: `vertice/research-phase-1`.
 - Módulos centrais e documentação foram lidos do ZIP e da branch remota.
 - Testes originais executados localmente: 13 passed.
 - Testes adicionais de fronteira entre sessões inicialmente falharam e revelaram que controles e repiques podiam usar a abertura do pregão seguinte. As rotas foram corrigidas.
-- Após correções, testes de fronteira, retornos por sessão e dimensionamento de risco: suíte local, 22 passed.
+- Após correções, testes de fronteira, retornos por sessão e dimensionamento de risco: suíte de testes do pacote VÉRTICE extraído, 22 passed; a suíte completa do repositório Prometheus não foi executada nesta sessão.
 - Chamadas HTTP a brapi.dev e query1.finance.yahoo.com falharam com `NameResolutionError`: hosts externos não resolvem no container. Nenhum OHLCV intradiário real foi baixado.
 - `yfinance` não está instalado; `requests`, `pandas`, `numpy` e `pytest` estão disponíveis.
 
