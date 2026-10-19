@@ -38,3 +38,7 @@ Data de execução: 19/10/2026. Branch remota: `vertice/research-phase-1`.
 - Nenhuma hipótese de repique foi testada empiricamente.
 - Nenhuma estratégia foi demonstrada lucrativa.
 - Sem bid/ask, livro, negócios, execução, leilões, aluguel e custos efetivamente observados.
+
+
+## Empacotamento
+- `pyproject.toml` foi atualizado para incluir `vertice*` na descoberta de pacotes e declarar `pandas`, `numpy` e `requests`, necessários ao módulo quantitativo. A verificação de instalação editável foi realizada no pacote local extraído; não foi possível executar GitHub Actions a partir desta sessão.
