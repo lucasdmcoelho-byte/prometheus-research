@@ -145,3 +145,14 @@ See [docs/COMMERCIAL_AND_LEGAL.md](docs/COMMERCIAL_AND_LEGAL.md) and
 
 Released under the [MIT License](LICENSE). The research outputs remain subject
 to their original source terms; this code is not investment advice.
+
+
+## VÉRTICE — intraday quantitative research
+
+A separate research module is being developed on branch `vertice/research-phase-1` to test intraday rebound hypotheses, cross-asset lead/lag relationships, data quality, and cost-adjusted simulations. It does not send orders and has not demonstrated a profitable strategy.
+
+- [Methodology](docs/VERTICE_METODOLOGIA.md)
+- [Data-source audit](docs/VERTICE_FONTES_DE_DADOS.md)
+- [Hypothesis register](docs/VERTICE_HIPOTESES.md)
+- [Phase 1 status and limitations](docs/VERTICE_STATUS_FASE1.md)
+- [Local execution instructions](docs/VERTICE_EXECUCAO.md)
