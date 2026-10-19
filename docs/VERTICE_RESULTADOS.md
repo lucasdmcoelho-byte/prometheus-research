@@ -5,7 +5,7 @@ Data da auditoria: 19/10/2026. Dataset empírico disponível: snapshots manuais 
 ## Auditoria e testes
 - Branch `vertice/research-phase-1` existe e os módulos centrais foram examinados.
 - Testes da fase 1 reproduzidos localmente: 13 passed.
-- Testes de regressão foram acrescentados após falhas reais revelarem risco de cruzamento de pregões. Com correções locais de retornos por sessão, eventos de controle, repiques e dimensionamento de risco, 22 testes passaram no ambiente local.
+- Testes de regressão foram acrescentados após falhas reais revelarem risco de cruzamento de pregões. Com correções locais de retornos por sessão, eventos de controle, repiques e dimensionamento de risco, 22 testes do pacote VÉRTICE extraído passaram no ambiente local; a suíte completa do repositório Prometheus não foi executada nesta sessão.
 - Alterações remotas confirmadas nos módulos `data_pipeline.py`, `controls.py`, `rebounds.py`; módulo `risk.py` e script de aquisição adicionados.
 
 ## Aquisição de dados reais
