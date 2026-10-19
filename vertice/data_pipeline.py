@@ -42,15 +42,30 @@ def quality_report(df: pd.DataFrame) -> QualityReport:
     tz = str(df["timestamp"].dt.tz) if hasattr(df["timestamp"].dt, "tz") else "unknown"
     return QualityReport(len(df), int(df["symbol"].nunique()), dupes, missing_count, invalid_ohlc, nonpositive, negative_volume, tz,
       df["timestamp"].min().isoformat() if len(df) else None, df["timestamp"].max().isoformat() if len(df) else None)
-def add_returns(df: pd.DataFrame, horizons=(1, 3, 5, 10)) -> pd.DataFrame:
-    """Add close-to-close absolute and fractional returns by symbol and bar horizon."""
-    out = df.sort_values(["symbol", "timestamp"]).copy()
-    grouped = out.groupby("symbol", sort=False)["close"]
+def add_returns(df: pd.DataFrame, horizons=(1, 3, 5, 10), *, session_aware: bool = True) -> pd.DataFrame:
+    """Add close-to-close returns by bar horizon.
+
+    By default, lags reset at the B3 local calendar date so overnight gaps are not
+    mislabeled as intraday returns. This does not infer the official trading calendar;
+    filter non-session rows and exceptional sessions when known.
+    """
+    out = df.sort_values(["symbol", "timestamp"], kind="stable").copy()
+    if session_aware:
+        out["_session_date"] = out["timestamp"].dt.tz_convert("America/Sao_Paulo").dt.date
+        grouped = out.groupby(["symbol", "_session_date"], sort=False)["close"]
+    else:
+        grouped = out.groupby("symbol", sort=False)["close"]
     for h in horizons:
+        h = int(h)
+        if h < 1:
+            raise ValueError("return horizons must be positive integers")
         prior = grouped.shift(h)
         out[f"delta_{h}"] = out["close"] - prior
         out[f"return_{h}"] = out["close"] / prior - 1.0
+    if "_session_date" in out:
+        out.drop(columns=["_session_date"], inplace=True)
     return out
+
 def check_regular_intervals(df: pd.DataFrame, expected_minutes: int = 1) -> pd.DataFrame:
     """Report gaps; does not infer bars during auctions, halts, or session breaks."""
     rows, expected = [], pd.Timedelta(minutes=expected_minutes)
