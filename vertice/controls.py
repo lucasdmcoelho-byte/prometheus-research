@@ -10,9 +10,11 @@ def detect_drawdown_controls(df: pd.DataFrame, *, lookback_bars: int = 5,
     if lookback_bars < 2 or cooldown_bars < 0:
         raise ValueError("lookback_bars >= 2 and cooldown_bars >= 0 required")
     x = df.sort_values("timestamp").reset_index(drop=True).copy()
-    peak = x["close"].shift(1).rolling(lookback_bars, min_periods=lookback_bars).max()
+    session_dates = x["timestamp"].dt.tz_convert("America/Sao_Paulo").dt.date
+    peak = x.groupby(session_dates)["close"].transform(lambda s: s.shift(1).rolling(lookback_bars, min_periods=lookback_bars).max())
+    previous = x.groupby(session_dates)["close"].shift(1)
     dd = x["close"] / peak - 1
-    bounce = x["close"] / x["close"].shift(1) - 1
+    bounce = x["close"] / previous - 1
     flags = ((dd <= -abs(drawdown_threshold)) & (bounce < max_bounce)).fillna(False).to_numpy()
     chosen, last = [], -10**9
     for i, flag in enumerate(flags):
