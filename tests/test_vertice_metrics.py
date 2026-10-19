@@ -12,3 +12,12 @@ def test_run_lengths():
  r=path_runs(pd.Series([1,2,3,2,1,0])); assert r['up_run_max']==2 and r['down_run_max']==3
 def test_lagged_corr_reports_requested_lags():
  r=pd.DataFrame({'A':[1,2,3,4,5,6],'B':[2,4,6,8,10,12]}); out=lagged_corr(r,'A','B',max_lag=2,min_periods=3); assert list(out.lag_bars)==[-2,-1,0,1,2]
+
+
+def test_returns_reset_between_sessions_by_default():
+ x=sample(); x.loc[3,"timestamp"]=pd.Timestamp("2026-01-02 12:00",tz="UTC")
+ out=add_returns(x,horizons=(1,)); assert pd.isna(out.loc[3,"return_1"])
+
+def test_returns_can_explicitly_include_overnight_lag():
+ x=sample(); x.loc[3,"timestamp"]=pd.Timestamp("2026-01-02 12:00",tz="UTC")
+ out=add_returns(x,horizons=(1,),session_aware=False); assert out.loc[3,"return_1"]==0.0
