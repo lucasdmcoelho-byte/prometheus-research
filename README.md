@@ -155,4 +155,6 @@ A separate research module is being developed on branch `vertice/research-phase-
 - [Data-source audit](docs/VERTICE_FONTES_DE_DADOS.md)
 - [Hypothesis register](docs/VERTICE_HIPOTESES.md)
 - [Phase 1 status and limitations](docs/VERTICE_STATUS_FASE1.md)
+- [Phase 2 audit and execution status](docs/VERTICE_STATUS_FASE2.md)
+- [Phase 2 results](docs/VERTICE_RESULTADOS.md)
 - [Local execution instructions](docs/VERTICE_EXECUCAO.md)
