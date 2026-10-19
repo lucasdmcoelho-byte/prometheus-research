@@ -32,13 +32,16 @@ def forward_event_outcomes(df: pd.DataFrame, events: pd.DataFrame, *, horizon_ba
     if horizon_bars < 1:
         raise ValueError("horizon_bars must be >= 1")
     x = df.sort_values("timestamp").reset_index(drop=True)
+    session_dates = x["timestamp"].dt.tz_convert("America/Sao_Paulo").dt.date
     rows = []
     for event in events.itertuples(index=False):
         signal_i = int(event.signal_index)
         entry_i = signal_i + 1
-        if entry_i >= len(x):
+        if entry_i >= len(x) or session_dates.iloc[entry_i] != session_dates.iloc[signal_i]:
             continue
         end = min(entry_i + horizon_bars, len(x))
+        while end > entry_i and session_dates.iloc[end - 1] != session_dates.iloc[entry_i]:
+            end -= 1
         entry = float(x.loc[entry_i, "open"])
         future = x.iloc[entry_i:end]
         if entry <= 0 or future.empty:
