@@ -15,10 +15,10 @@ Consulta documental realizada em 19/10/2026. Cobertura e condições comerciais 
 
 ## Yahoo Finance / yfinance
 - Implementação do histórico: https://github.com/ranaroussi/yfinance/blob/main/yfinance/scrapers/history.py
-- O código documenta intervalos intradiários e informa que intraday não se estende além dos últimos 60 dias. A cobertura pode variar e não é fonte oficial de execução B3.
+- A documentação de yfinance informa que dados intradiários não podem se estender além dos últimos 60 dias. A cobertura pode variar e não é fonte oficial de execução B3.
 
 ## Status de acesso
-A documentação foi localizada, mas o ambiente de execução não conseguiu resolver hosts externos ao tentar baixar dados. Nenhuma série OHLCV real foi obtida. A base manual da conversa não é usada como candle nem como backtest.
+A documentação foi localizada, mas chamadas HTTP reais a brapi.dev e query1.finance.yahoo.com falharam por NameResolutionError no ambiente. Nenhuma série OHLCV real foi obtida. A CLI scripts/fetch_intraday.py foi implementada, mas a resposta de um provedor ainda não pôde ser validada. A base manual da conversa não é usada como candle nem como backtest.
 
 ## Requisitos de aprovação
 1. MGLU3 e ativos de controle no mesmo intervalo.
