@@ -32,8 +32,10 @@ def evaluate_rebounds(df:pd.DataFrame,signals:pd.DataFrame,config:ReboundConfig=
     for row in signals.itertuples(index=False):
         i=int(row.signal_index); entry_i=i+1
         if entry_i>=len(x): continue
-        end=min(entry_i+config.horizon_bars,len(x))
+        signal_session=row.timestamp.tz_convert("America/Sao_Paulo").date()
         session=x.loc[entry_i,"timestamp"].tz_convert("America/Sao_Paulo").date()
+        if session != signal_session: continue
+        end=min(entry_i+config.horizon_bars,len(x))
         while end>entry_i and x.loc[end-1,"timestamp"].tz_convert("America/Sao_Paulo").date()!=session: end-=1
         entry=float(x.loc[entry_i,"open"]); future=x.iloc[entry_i:end]
         if entry<=0 or future.empty: continue
