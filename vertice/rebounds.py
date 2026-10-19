@@ -16,9 +16,11 @@ def detect_rebounds(df:pd.DataFrame,config:ReboundConfig=ReboundConfig())->pd.Da
     """Signal uses current/past bars only; entry is scheduled for next-bar open."""
     if config.lookback_bars<2 or config.horizon_bars<1: raise ValueError("lookback_bars >= 2 and horizon_bars >= 1 required")
     x=df.sort_values("timestamp").reset_index(drop=True).copy()
-    x["rolling_peak_prev"]=x["close"].shift(1).rolling(config.lookback_bars,min_periods=config.lookback_bars).max()
+    x["session_date"]=x["timestamp"].dt.tz_convert("America/Sao_Paulo").dt.date
+    x["rolling_peak_prev"]=x.groupby("session_date")["close"].transform(lambda s:s.shift(1).rolling(config.lookback_bars,min_periods=config.lookback_bars).max())
+    x["previous_close"]=x.groupby("session_date")["close"].shift(1)
     x["drawdown_from_peak"]=x["close"]/x["rolling_peak_prev"]-1
-    x["bounce_return"]=x["close"]/x["close"].shift(1)-1
+    x["bounce_return"]=x["close"]/x["previous_close"]-1
     flags=((x["drawdown_from_peak"]<=-abs(config.drawdown_threshold))&(x["bounce_return"]>=config.min_bounce)).fillna(False).to_numpy()
     accepted=[]; last=-10**9
     for i,flag in enumerate(flags):
@@ -30,7 +32,10 @@ def evaluate_rebounds(df:pd.DataFrame,signals:pd.DataFrame,config:ReboundConfig=
     for row in signals.itertuples(index=False):
         i=int(row.signal_index); entry_i=i+1
         if entry_i>=len(x): continue
-        end=min(entry_i+config.horizon_bars,len(x)); entry=float(x.loc[entry_i,"open"]); future=x.iloc[entry_i:end]
+        end=min(entry_i+config.horizon_bars,len(x))
+        session=x.loc[entry_i,"timestamp"].tz_convert("America/Sao_Paulo").date()
+        while end>entry_i and x.loc[end-1,"timestamp"].tz_convert("America/Sao_Paulo").date()!=session: end-=1
+        entry=float(x.loc[entry_i,"open"]); future=x.iloc[entry_i:end]
         if entry<=0 or future.empty: continue
         target,stop=entry*(1+config.target_return),entry*(1-config.stop_return)
         exit_price,reason,exit_i=float(future.iloc[-1]["close"]),"horizon",end-1
