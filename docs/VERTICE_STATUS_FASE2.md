@@ -42,3 +42,8 @@ Data de execução: 19/10/2026. Branch remota: `vertice/research-phase-1`.
 
 ## Empacotamento
 - `pyproject.toml` foi atualizado para incluir `vertice*` na descoberta de pacotes e declarar `pandas`, `numpy` e `requests`, necessários ao módulo quantitativo. A verificação de instalação editável foi realizada no pacote local extraído; não foi possível executar GitHub Actions a partir desta sessão.
+
+
+## Proveniência do dataset manual
+- O CSV de snapshots manual não foi commitado no repositório remoto. O pacote local distribuído contém `data/manual_observations_2026-10-19.csv`; ao executar o script num checkout remoto sem esse arquivo, passe `--input /caminho/para/arquivo.csv`. Isso evita que um dataset de origem manual seja confundido com dado oficial ou incluído silenciosamente no repositório.
+- A qualidade do dataset manual foi calculada localmente: 151 linhas, 142 com horário, 9 sem horário, 9 símbolos, zero duplicações de símbolo+timestamp, zero preços ausentes/não positivos; gaps entre snapshots de 4 a 12 minutos, mediana 7.
