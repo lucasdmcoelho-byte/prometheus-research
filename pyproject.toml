@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "prometheus-research"
 version = "2.1.0rc2"
-description = "Point-in-time financial research and auditable PDF reports for B3 equities"
+description = "Point-in-time financial research and auditable PDF reports for B3 equities, including VÉRTICE intraday research"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
@@ -13,13 +13,13 @@ dependencies = [
   "reportlab>=4,<5",
   "pypdf>=5,<7",
   "yfinance>=0.2.54,<2",
+  "pandas>=2,<3",
+  "numpy>=1.24,<3",
+  "requests>=2.31,<3",
 ]
 
 [project.optional-dependencies]
-dev = [
-  "pandas>=2,<3",
-  "pytest>=8,<10",
-]
+dev = ["pytest>=8,<10"]
 
 [project.scripts]
 prometheus-research = "main:main"
@@ -28,7 +28,7 @@ prometheus-research = "main:main"
 py-modules = ["main"]
 
 [tool.setuptools.packages.find]
-include = ["prometheus*"]
+include = ["prometheus*", "vertice*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
